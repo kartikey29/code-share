@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { CopyBlock, dracula } from "react-code-blocks";
+
 import api from "../../api/api";
 const ProblemPage = () => {
   const [data, setData] = useState({});
@@ -64,8 +66,17 @@ const ProblemPage = () => {
   ) : (
     <>
       <div>
-        problem Link : {data.problemLink} , givenCode :{data.givenCode} ,
-        userDesc : {data.userDesc}
+        problem Link : {data.problemLink} , userDesc : {data.userDesc}
+      </div>
+      <div style={{ width: "80%", margin: "0 auto" }}>
+        <CopyBlock
+          text={data.givenCode}
+          language="cpp"
+          showLineNumbers={true}
+          theme={dracula}
+          codeBlock
+          wrapLines
+        />
       </div>
       <div>
         <form onSubmit={commentSubmitHandler}>

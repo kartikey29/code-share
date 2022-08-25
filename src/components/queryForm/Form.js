@@ -30,7 +30,7 @@ const Form = () => {
     console.log("asjnnsak");
     const response = await api.post("/create", body);
     if (response.status === 200) {
-      setPageLink(`http://localhost:3000/${response.data}`);
+      setPageLink(`${process.env.FRONTEND_URL}/${response.data}`);
       setShowLink(true);
     }
   };

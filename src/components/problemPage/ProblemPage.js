@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { CopyBlock, dracula } from "react-code-blocks";
+import classes from "./ProblemPage.module.css";
+import CodeBlock from "../CodeBlock";
 
 import api from "../../api/api";
 const ProblemPage = () => {
@@ -28,9 +29,17 @@ const ProblemPage = () => {
 
   const mapComments = (comment) => {
     return (
-      <div style={{ border: "1px black solid" }} key={comment.id}>
-        <div>description {comment.commentDesc}</div>
-        <div>code {comment.commentCode}</div>
+      <div className={classes.comment} key={comment.id}>
+        <div className={classes.userDesc}>
+          <h4>Description :</h4>
+          {comment.commentDesc}
+        </div>
+        <div className={classes.userDesc}>
+          <h4>Code :</h4>
+        </div>
+        <div>
+          <CodeBlock givenCode={comment.commentCode}></CodeBlock>
+        </div>
       </div>
     );
   };
@@ -65,19 +74,17 @@ const ProblemPage = () => {
     <div>loading</div>
   ) : (
     <>
-      <div>
-        problem Link : {data.problemLink} , userDesc : {data.userDesc}
+      <div className={classes.userDesc}>
+        <h4>User descriptions :</h4>
+        {data.userDesc}
       </div>
-      <div style={{ width: "80%", margin: "0 auto" }}>
-        <CopyBlock
-          text={data.givenCode}
-          language="cpp"
-          showLineNumbers={true}
-          theme={dracula}
-          codeBlock
-          wrapLines
-        />
+      <div className={classes.userDesc}>
+        <h4>Problem link :</h4>
+        <a href={data.problemLink}>{data.problemLink}</a>
       </div>
+      <h4 className={classes.userDesc}>User code :</h4>
+      <CodeBlock givenCode={data.givenCode}></CodeBlock>
+
       <div>
         <form onSubmit={commentSubmitHandler}>
           <input
@@ -88,15 +95,15 @@ const ProblemPage = () => {
           ></input>
           <textarea
             name="code"
-            rows="10"
-            cols="50"
             placeholder="enter code"
+            className={classes.textarea}
             onChange={changeHandler}
             value={code}
           ></textarea>
           <button>submit</button>
         </form>
       </div>
+      <h2>Comments :-</h2>
       {comments.map(mapComments)}
     </>
   );

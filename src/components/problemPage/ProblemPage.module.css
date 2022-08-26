@@ -1,0 +1,27 @@
+.codeBlock {
+  width: 70%;
+  margin: 0 auto;
+  height: 500px;
+  overflow: scroll;
+}
+input {
+  width: 93.7%;
+  height: 50px;
+  margin-bottom: 5px;
+}
+.textarea {
+  width: 93.9%;
+  resize: none;
+  height: 6rem;
+}
+h4 {
+  margin: 5px 0;
+}
+.userDesc {
+  margin: 20px;
+}
+
+.comment {
+  margin: 10px auto;
+  border: 1px black solid;
+}

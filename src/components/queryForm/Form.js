@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import api from "../../api/api";
+import CodeEditor from "@uiw/react-textarea-code-editor";
 const Form = () => {
   const [link, setLink] = useState("");
   const [description, setDescription] = useState("");
   const [code, setCode] = useState("");
-
+  const [lang, setLang] = useState("c");
   const [pageLink, setPageLink] = useState();
   const [showLink, setShowLink] = useState(false);
 
@@ -17,6 +18,8 @@ const Form = () => {
       setDescription(value);
     } else if (name === "code") {
       setCode(value);
+    } else if (name === "dropDown") {
+      setLang(value);
     }
   };
 
@@ -52,12 +55,32 @@ const Form = () => {
           value={description}
           onChange={changeHandler}
         ></textarea>
-        <textarea
-          placeholder="enter your code"
-          name="code"
-          onChange={changeHandler}
-          value={code}
-        ></textarea>
+        <select value={lang} name="dropDown" onChange={changeHandler}>
+          <option value="c">c</option>
+          <option value="cpp">c++</option>
+          <option value="js">javascript</option>
+          <option value="ts">typeScript</option>
+          <option value="java">java</option>
+          <option value="kt">kotlin</option>
+          <option value="html">html</option>
+          <option value="css">css</option>
+          <option value="dart">dart</option>
+          <option value="py">python</option>
+        </select>
+        <div>
+          <CodeEditor
+            name="code"
+            value={code}
+            language={lang}
+            placeholder={`Please enter ${lang} code`}
+            onChange={changeHandler}
+            padding={15}
+            style={{
+              fontSize: 12,
+              backgroundColor: "#f5f5f5",
+            }}
+          />
+        </div>
         <button type="Submit">Submit</button>
       </form>
       {showLink && (

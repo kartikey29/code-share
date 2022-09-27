@@ -1,0 +1,25 @@
+.submitBtn {
+  margin-top: 10px;
+  font-family: "Pacifico", cursive;
+  color: yellow;
+  display: block;
+  width: 70px;
+  border-radius: 20px;
+  padding: 5px;
+  background-color: darkblue;
+}
+
+.submitBtn:hover {
+  box-shadow: 0px 0px 25px 1px rgba(16, 55, 151, 0.75);
+  -webkit-box-shadow: 0px 0px 25px 1px rgba(16, 55, 151, 0.75);
+  -moz-box-shadow: 0px 0px 25px 1px rgba(16, 55, 151, 0.75);
+}
+
+.problemLink {
+  width: 98%;
+}
+.desc {
+  min-height: 100px;
+  width: 98.3%;
+  resize: none;
+}

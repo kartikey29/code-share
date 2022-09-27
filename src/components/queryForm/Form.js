@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import api from "../../api/api";
 import CodeEditor from "@uiw/react-textarea-code-editor";
+import classes from "./Form.module.css";
 const Form = () => {
   const [link, setLink] = useState("");
   const [description, setDescription] = useState("");
@@ -30,8 +31,9 @@ const Form = () => {
       problemLink: link,
       userDesc: description,
       givenCode: code,
+      lang: lang,
     };
-    console.log("asjnnsak");
+
     const response = await api.post("/create", body);
     if (response.status === 200) {
       setPageLink(`${process.env.REACT_APP_FRONTEND_URL}/${response.data}`);
@@ -47,6 +49,8 @@ const Form = () => {
           name="link"
           placeholder="Problem statement link"
           onChange={changeHandler}
+          className={classes.problemLink}
+          required="required"
         ></input>
         <textarea
           type="text"
@@ -54,6 +58,8 @@ const Form = () => {
           name="description"
           value={description}
           onChange={changeHandler}
+          className={classes.desc}
+          required="required"
         ></textarea>
         <select value={lang} name="dropDown" onChange={changeHandler}>
           <option value="c">c</option>
@@ -74,6 +80,7 @@ const Form = () => {
             language={lang}
             placeholder={`Please enter ${lang} code`}
             onChange={changeHandler}
+            required="required"
             padding={15}
             style={{
               fontSize: 12,
@@ -81,7 +88,9 @@ const Form = () => {
             }}
           />
         </div>
-        <button type="Submit">Submit</button>
+        <button className={classes.submitBtn} type="Submit">
+          Submit
+        </button>
       </form>
       {showLink && (
         <div>

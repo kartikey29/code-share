@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
 .codeBlock {
   width: 70%;
   margin: 0 auto;
@@ -9,6 +11,23 @@ input {
   height: 50px;
   margin-bottom: 5px;
 }
+.homeBtn {
+  font-family: "Pacifico", cursive;
+  position: absolute;
+  color: yellow;
+  font-size: 0.8 rem;
+  border-radius: 20px;
+  padding: 5px;
+  background-color: darkblue;
+  right: 0;
+}
+
+.homeBtn:hover {
+  box-shadow: 0px 0px 25px 1px rgba(16, 55, 151, 0.75);
+  -webkit-box-shadow: 0px 0px 25px 1px rgba(16, 55, 151, 0.75);
+  -moz-box-shadow: 0px 0px 25px 1px rgba(16, 55, 151, 0.75);
+}
+
 .textarea {
   width: 93.9%;
   resize: none;
@@ -19,9 +38,27 @@ h4 {
 }
 .userDesc {
   margin: 20px;
+  position: relative;
 }
 
 .comment {
   margin: 10px auto;
   border: 1px black solid;
+}
+
+.submitBtn {
+  font-family: "Pacifico", cursive;
+  color: yellow;
+  display: block;
+  font-size: large;
+  width: 100px;
+  border-radius: 20px;
+  padding: 5px;
+  background-color: darkblue;
+}
+
+.submitBtn:hover {
+  box-shadow: 0px 0px 25px 1px rgba(16, 55, 151, 0.75);
+  -webkit-box-shadow: 0px 0px 25px 1px rgba(16, 55, 151, 0.75);
+  -moz-box-shadow: 0px 0px 25px 1px rgba(16, 55, 151, 0.75);
 }
